@@ -1,0 +1,43 @@
+<div #container>
+  <app-chart
+    [dimensions]="dimensions">
+    <svg:g appAxis
+      dimension="x"
+      [dimensions]="dimensions"
+      [scale]="xScale"
+      [formatTick]="formatDate"
+      [label]="labelX">
+    </svg:g>
+    <svg:g appAxis
+      dimension="y"
+      [dimensions]="dimensions"
+      [scale]="yScale"
+      [label]="labelY">
+    </svg:g>
+
+    <svg:g appArea
+      [data]="areaCoordinates"
+      [xAccessor]="xAccessorScaled"
+      [yAccessor]="yAccessorScaled"
+    >
+    </svg:g>
+
+    <!-- <ng-template ngFor let-data [ngForOf]="items" let-i="index"> -->
+    <svg:g *ngFor="let d of data; index as i;" appLine 
+      [data]="d.data"
+      [xAccessor]="xAccessorScaled"
+      [yAccessor]="yAccessorScaled"
+      [color]= "d.color || colorScale(i)"
+    >
+    </svg:g>
+    <svg:g *ngFor="let d of data; index as i;" appCircles
+      [data]="d.data"
+      [keyAccessor]="keyAccessor"
+      [xAccessor]="xAccessorScaled"
+      [yAccessor]="yAccessorScaled"
+      [color]="d.color || colorScale(i)"
+    >
+    </svg:g>
+    <!-- </ng-template> -->
+  </app-chart>
+</div>
