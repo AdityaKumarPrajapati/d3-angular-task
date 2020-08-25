@@ -1,0 +1,8 @@
+path {
+    transition: all 0.3s ease-out;
+}
+
+.area {
+    fill: '#d3d3d3';
+    opacity: 0.1;
+}
