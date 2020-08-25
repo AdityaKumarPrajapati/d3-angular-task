@@ -41,8 +41,6 @@ if you are interested in changing the value then it can be changed here : `src/a
 
 ## Additional Improvement Scope
 
-- Lint is integrated, need to check and fix issues (if any)
-
 - Writing unit test cases for code coverage 
 
 - Adding data information on hover
