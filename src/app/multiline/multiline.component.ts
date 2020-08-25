@@ -49,6 +49,7 @@ export class MultilineComponent implements AfterContentInit, OnChanges {
 
   @ViewChild('container', { static: true }) container: ElementRef;
   constructor() {
+    // TODO - should be managed globally (from config etc)
     this.dimensions = {
       marginTop: 40,
       marginRight: 40,
@@ -108,7 +109,6 @@ export class MultilineComponent implements AfterContentInit, OnChanges {
   }
 
   getAreaCoordinates(data) {
-    // const sortedRecords = data.sort((a, b) => Date.parse(a.label) - Date.parse(b.label)); -(future scope) for sorting for future or enhancing the feature
     const minGrouped = new Map();
     const maxGrouped = new Map();
 

@@ -13,7 +13,7 @@ export class AppComponent {
   multilineData: Array<multilineDataPoint>;
   multilineYLabel = 'Temperature';
   multilineXLabel = 'Date';
-  multilineXFormat = '%-b %-d, %Y';
+  multilineXFormat = '%Y';
 
   constructor() {
     this.multilineData = [];

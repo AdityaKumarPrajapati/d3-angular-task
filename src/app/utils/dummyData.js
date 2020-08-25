@@ -6,25 +6,26 @@ const boxMullerRandom = () => (
 )
 const randomAroundMean = (mean, deviation) => mean + boxMullerRandom() * deviation
 
-const today = new Date()
+const today = new Date("2021") // You can add year or start with current year
 const formatDate = d3.timeFormat("%Y-%m-%d")
 
 const colors = ['#CD6155', '#AF7AC5', '#7FB3D5', '#76D7C4', '#F7DC6F', '#F0B27A', '#85929E']
+
 /**
  * @description: method for generating timeline data
  */
-export const getTimelineData = (length = 20) => {
+export const getTimelineData = (length = 10) => {
   let value = randomAroundMean(-5, 40)
-  const firstTemperature = d3.timeDay.offset(today, -length)
-
+  const firstTemperature = d3.timeYear.offset(today, -length)
   return new Array(length).fill(0).map((d, i) => {
     value += randomAroundMean(0, 10)
     return {
-      label: formatDate(d3.timeDay.offset(firstTemperature, i)),
+      label: formatDate(d3.timeYear.offset(firstTemperature, i)),
       value,
     }
   })
 }
+
 /**
  * @description: method for generating data for multiline chart in random manner, it will return a list of temp data with dates for random between min and max
  */
